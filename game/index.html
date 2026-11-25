@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dapur Kilat — Game Memasak</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">🍳 DAPUR KILAT</div>
+    <div class="stats">
+      <div class="stat">Skor <b id="score">0</b></div>
+      <div class="stat">Koin <b id="coins">0</b> 🪙</div>
+      <div class="stat">Tersaji <b id="served">0</b>/10</div>
+      <div class="stat">Shift <b id="shift">3:00</b></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="orders">
+      <h2>📋 Papan Pesanan</h2>
+      <div id="order-board"></div>
+      <p class="hint">Klik kartu pesanan untuk memilih. Sajikan sebelum waktunya habis!</p>
+    </section>
+
+    <section id="kitchen">
+      <div id="counter">
+        <h2>🥘 Meja Racik — klik bahan atau tekan 1–5</h2>
+        <div id="stations"></div>
+      </div>
+      <div id="plate-area">
+        <div id="plate">
+          <div class="plate-label">Piring <span id="plate-for"></span></div>
+          <div id="plate-items"></div>
+          <div id="plate-msg">Pilih pesanan, lalu susun bahannya sesuai urutan.</div>
+        </div>
+        <div id="plate-actions">
+          <button id="serve-btn" disabled>🍽️ SAJIKAN (S)</button>
+          <button id="clear-btn">🗑️ Buang (X)</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="log">Selamat datang di Dapur Kilat! Tekan MULAI untuk buka dapur.</footer>
+</div>
+
+<div id="overlay" class="overlay">
+  <div class="panel">
+    <h1>🍳 DAPUR KILAT</h1>
+    <p class="tagline">Warung kecil, pesanan membludak, waktu terus jalan!</p>
+    <div class="howto">
+      <p><b>Cara main:</b></p>
+      <p>1. Lihat pesanan di papan — tiap hidangan punya 3 bahan <b>berurutan</b>.</p>
+      <p>2. Klik bahan di meja racik (atau tekan <b>1–5</b>) untuk menaruhnya di piring.</p>
+      <p>3. Bahan salah = 1 coretan. 3 coretan atau waktu habis = pesanan hangus.</p>
+      <p>4. Kalau piring sudah lengkap, tekan <b>SAJIKAN</b> (atau tombol <b>S</b>).</p>
+      <p>5. Sajikan <b>10 hidangan</b> sebelum shift 3 menit habis untuk menang. 3 pesanan hangus = kalah.</p>
+    </div>
+    <button id="start-btn">▶ MULAI MASAK</button>
+    <p class="dishes">Menu: Nasi Goreng · Ayam Geprek · Tumis Sayur</p>
+  </div>
+</div>
+
+<div id="end-overlay" class="overlay hidden">
+  <div class="panel">
+    <h1 id="end-title">Shift Selesai!</h1>
+    <p id="end-text"></p>
+    <p class="end-score">Skor akhir: <b id="end-score">0</b> · Koin: <b id="end-coins">0</b> · Tersaji: <b id="end-served">0</b></p>
+    <button id="restart-btn">↻ MAIN LAGI</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
